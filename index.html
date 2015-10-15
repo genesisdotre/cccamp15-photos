@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>cccamp15 photos</title>
+
+  <script src="angular.js"></script>
+  <script src="filenames.js"></script>
+
+  <script>
+    var app = angular.module("app", []);
+
+    app.controller("ctrl", function($scope) {
+      $scope.filenames = filenames; // coming from filenames.js
+    });
+  </script>
+
+  <style>
+    img { 
+      max-width: 100vw;
+      max-height: 100vh;
+    }
+    .image-wrapper {
+      text-align: center;
+    }
+  </style>
+
+</head>
+<body ng-app="app" ng-controller="ctrl">
+
+  <div ng-repeat="item in filenames" class="image-wrapper">
+    <img src="images/{{item}}">
+  </div>
+
+</body>
+</html>
